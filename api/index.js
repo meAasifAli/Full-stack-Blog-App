@@ -1,3 +1,4 @@
+import path from 'path'
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
@@ -10,6 +11,8 @@ import authRoutes from './routes/auth.route.js'
 import blogRoutes from './routes/blog.route.js'
 import userRoutes from './routes/user.route.js'
 
+const __dirname = path.resolve()
+
 dotenv.config()
 
 const app = express()
@@ -20,6 +23,8 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
+
+
 
 
 app.use(express.json({ limit: "50mb" }))
@@ -44,3 +49,8 @@ await connectDB()
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/blogs", blogRoutes)
+
+app.use(express.static(path.join(__dirname, '/client/dist')))
+app.use("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
+})
