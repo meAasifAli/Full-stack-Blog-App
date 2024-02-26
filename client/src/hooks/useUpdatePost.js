@@ -11,7 +11,7 @@ const useUpdatePost = ({ title, content, photo }) => {
     const handleUpdatePost = async (postId) => {
         setLoading(true)
         try {
-            const res = await axios.put(`http://localhost:5000/api/blogs/update/${postId}`, { title, content, photo })
+            const res = await axios.put(`https://full-stack-blog-app-5cen.onrender.com/api/blogs/update/${postId}`, { title, content, photo })
             if (res?.status === 200) {
                 setBlog(res?.data)
                 toast.success("Post updated Success", {

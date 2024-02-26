@@ -9,7 +9,7 @@ const useLogout = () => {
     const handlelogout = async () => {
         setLoading(true)
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/logout")
+            const res = await axios.post("https://full-stack-blog-app-5cen.onrender.com/api/auth/logout")
 
             if (res.status === 200) {
                 setAuthUser(null)

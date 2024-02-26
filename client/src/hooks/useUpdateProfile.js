@@ -2,6 +2,7 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import axios from "axios"
 import { useAuthUser } from '../context/AuthContext'
+
 const useUpdateProfile = () => {
     const { authUser, setAuthUser } = useAuthUser()
     const [loading, setLoading] = useState(false)
@@ -10,7 +11,7 @@ const useUpdateProfile = () => {
         setLoading(true)
 
         try {
-            const res = await axios.put(`http://localhost:5000/api/users/update/${authUser._id}`, {
+            const res = await axios.put(`https://full-stack-blog-app-5cen.onrender.com/api/users/update/${authUser._id}`, {
                 username, fullname, email, profilePic
             })
 

@@ -17,7 +17,7 @@ const useSignup = () => {
             return
         }
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/signup", { username, fullname, email, password })
+            const res = await axios.post("https://full-stack-blog-app-5cen.onrender.com/api/auth/signup", { username, fullname, email, password })
             if (res?.status === 201) {
                 setAuthUser(res?.data)
                 localStorage.setItem("authUser", JSON.stringify(res?.data))

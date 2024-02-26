@@ -10,7 +10,7 @@ const useDeletePost = () => {
     const handleDeletePost = async (postId) => {
         setLoading(true)
         try {
-            const res = await axios.delete(`http://localhost:5000/api/blogs/delete/${postId}`)
+            const res = await axios.delete(`https://full-stack-blog-app-5cen.onrender.com/api/blogs/delete/${postId}`)
             if (res?.status === 200) {
                 setUserBlogs(userBlogs.filter((post) => post._id !== postId))
                 toast.success("Post Deleted Successfully", {

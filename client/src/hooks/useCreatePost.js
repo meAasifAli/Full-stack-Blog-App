@@ -14,7 +14,7 @@ const useCreatePost = () => {
         }
         setLoading(true)
         try {
-            const res = await axios.post('http://localhost:5000/api/blogs/create', { title, content, photo, category, createdBy })
+            const res = await axios.post('https://full-stack-blog-app-5cen.onrender.com/api/blogs/create', { title, content, photo, category, createdBy })
             if (res.status === 201) {
                 toast.success("Post Created Successfully", {
                     duration: 3000,

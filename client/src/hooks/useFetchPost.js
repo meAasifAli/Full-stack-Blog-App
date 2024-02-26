@@ -9,7 +9,7 @@ const useFetchPost = (id) => {
     const fetchSinglePost = async () => {
         setLoading(true)
         try {
-            const res = await axios.get(`http://localhost:5000/api/blogs/single/${id}`)
+            const res = await axios.get(`https://full-stack-blog-app-5cen.onrender.com/api/blogs/single/${id}`)
             if (res.status === 200) {
                 setBlog(res.data)
             }

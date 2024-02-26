@@ -15,7 +15,7 @@ const useFetchPosts = () => {
             setLoading(false)
         }
         try {
-            const res = await axios.get(search !== "" ? `http://localhost:5000/api/blogs/${search}` : "http://localhost:5000/api/blogs")
+            const res = await axios.get(search !== "" ? `https://full-stack-blog-app-5cen.onrender.com/api/blogs/${search}` : "https://full-stack-blog-app-5cen.onrender.com/api/blogs")
             if (res.status === 200) {
                 setBlogs(res?.data)
             }
